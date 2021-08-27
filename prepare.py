@@ -30,9 +30,9 @@ def prep_telco(df):
     '''
     # drop the duplicates, customer_id, and Unnamed: 0 columns
     df.drop_duplicates(inplace = True)
-    df.drop(columns = {'customer_id'}, inplace = True)
+    df.drop(columns = 'customer_id', inplace = True)
 
-    # encoding columns containing strings
+    #### encoding columns containing strings ####
     df['gender'] = df['gender'].replace(['Female', 'Male'], [0,1])
     df['partner'] = df['partner'].replace(['No', 'Yes'], [0,1])
     df['dependents'] = df['dependents'].replace(['No', 'Yes'], [0,1])
@@ -47,20 +47,40 @@ def prep_telco(df):
     df['paperless_billing'] = df['paperless_billing'].replace(['No', 'Yes'], [0,1])
     df['churn'] = df['churn'].replace(['No', 'Yes'], [0,1])
 
-    # Fixing total_charges by 1.) getting rid of rows where total_charges are null. 2.) Changing dtype to floats
-    df_clean = df[~df['total_charges'].str.contains(" ")]
-    df_clean.total_charges.astype(float)
+    # Fixing total_charges by 
+        # 1.) getting rid of rows where total_charges are null. 
+        # 2.) Changing dtype to floats
+    df = df[~df['total_charges'].str.contains(" ")]
+    df.total_charges.astype(float)
 
-    df_clean.rename(columns = {'gender' : 'is_male', 'partner' : 'has_partner', 'dependents': 'has_dependents',
+    # Renaming cols to match encoding
+    df.rename(columns = {'gender' : 'is_male','senior_citizen' : 'is_senior', 'partner' : 'has_partner', 'dependents': 'has_dependents',
      'phone_service': 'has_phone', 'multiple_lines': 'has_multi_line', 'online_security': 'has_onl_sec', 'online_backup': 'has_backup',
       'device_protection': 'has_dev_pro', 'tech_support': 'has_tech_supp', 'streaming_tv' : 'has_tv_strm',
-       'streaming_movies': 'has_mv_strm', 'paperless_billing': 'has_pprless_bill', 'churn': 'has_churned'}, inplace = True)
+       'streaming_movies': 'has_mv_strm', 'paperless_billing': 'has_pprless_bill', 'churn': 'has_churned', 'payment_type_id' : 'payment',
+       'internet_service_type_id' : 'internet', 'contract_type_id' : 'contract'}, inplace = True)
+
+    # Recasting vals to create dummies
+    df['payment'] = df['payment'].replace([1, 2, 3, 4], ['e_check', 'm_check', 'bank', 'card'])
+    df['internet'] = df['internet'].replace([1, 2, 3], ['dsl', 'fiber', 'none'])
+    df['contract'] = df['contract'].replace([1, 2, 3], ['m_to_m', 'one_year', 'two_year'])
+
+    # Creating dummies
+    df = pd.get_dummies(data = df, columns = ['payment', 'internet', 'contract'])
+
+    # Creating engineered features
+    df['auto_bill'] = ((df['payment_bank'] == 1) | (df['payment_card'] == 1))
+    df['fbr_multi_line'] = ((df['internet_fiber'] == 1) & (df['has_multi_line'] == 1))
+    
+    # Recasting bools as 0s and 1s
+    df['auto_bill'] = df['auto_bill'].replace([False, True], [0,1])
+    df['fbr_multi_line'] = df['fbr_multi_line'].replace([False, True], [0,1])
 
     # split data into train, validate, test dfs
-    train, validate, test = telco_split(df_clean)
+    train, validate, test = telco_split(df)
     return train, validate, test
 
-# Split newly cleaned data into train, validate, and test sets with churn being stratified
+# Split newly cleaned telco data into train, validate, and test sets with has_churned being stratified
 def telco_split(df):
     '''
     This function take in the telco data acquired by get_telco_data,

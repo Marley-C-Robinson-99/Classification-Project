@@ -14,7 +14,7 @@ placeholder_target    | indicates if a customer has fiber, if their tenure is le
 
 Categorical Features   | Description |    Data Type
 --|--|--
-gender    |   indicates the the customers' gender identity |    uint8
+gender    |   indicates the the customers' gender identity |    int8
 senior_citizen|    indicates if the customer is a senior citizen    |int64
 partner|    indicates if the customer has a partner    |int64
 dependents|        indicates if the customer has dependents    |int64
@@ -37,6 +37,12 @@ Continuous Features | Description | Data Type
 monthly_charges | how much a customer pays per month in dollars| float64
 total_charges   | how much a customer has paid over the course of their tenure | float64
 tenure          | how many months the customer has been with the company| int64
+
+Engineered Features  | Description   | Data Type
+--|--|--
+auto_bill    | indicates if a customer has a form of automatic payment | int64
+fbr_multi_line    | indicates if a customer fiber internet and multiple phone lines | int64
+
 
 Other   | Description   | Data Type
 --|--|--
