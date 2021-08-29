@@ -51,7 +51,7 @@ def prep_telco(df):
         # 1.) getting rid of rows where total_charges are null. 
         # 2.) Changing dtype to floats
     df = df[~df['total_charges'].str.contains(" ")]
-    df.total_charges.astype(float)
+    df["total_charges"] = pd.to_numeric(df["total_charges"])
 
     # Renaming cols to match encoding
     df.rename(columns = {'gender' : 'is_male','senior_citizen' : 'is_senior', 'partner' : 'has_partner', 'dependents': 'has_dependents',

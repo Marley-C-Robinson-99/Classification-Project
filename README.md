@@ -4,7 +4,7 @@
     - Extrapolate valuable analysis from the model that best fits the data.
     - Document processes, findings, and takeaways in a final draft Jupyter Notebook
     - Present on my final Jupyter Notebook, giving a high-level overview of the process used to create the model of best fit
-    - 
+
 
 
 ## Data dictionary
@@ -60,11 +60,12 @@ customer_id | customer id number                       | object
 
 
 ## Plan:
-- [] Create repo on github to save all files related to the project.
+- [x] Create repo on github to save all files related to the project.
 - [] Create README.md with [x]goals, [x]initial hypotheses, [x]data dictionary, []executive summary, and [x]outline plans for the project.
 - [x] Acqiure telco data using acquire.py file drawing directly from Codeups `telco_churn` database with SQL queries. Create functions for use in conjunction with prepare.py. Document each function.
-- [] Clean, tidy, and encode data in such a way that it is usable in a machine learning algorithm. Includes dropping unneccesary columns, creating dummies where needed and changing string values to numeric values. Document each function.
-- [] Create hypotheses to run statistical tests on such as t-test, chi-squared among others to determine the viability of said hypotheses by comparing p-values to alpha.
+- [x] Clean, tidy, and encode data in such a way that it is usable in a machine learning algorithm. Includes dropping unneccesary columns, creating dummies where needed and changing string values to numeric values. Document each function.
+- [x] Create hypotheses based on preliminary statistical tests
+- [x] Test hypotheses with tests such as t-test, chi-squared among others to determine the viability of said hypotheses by comparing p-values to alpha.
 - [] Establish a baseline accuracy.
 - [] Train three different classification models from kNN, random forrest, decision trees, and regression models, testing a variety of parameters and features, both engineered and pre-existing.
 - [] Compute accuracy of models on in-sample and out-of-sample datasets using a variety of equations and functions.
