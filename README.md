@@ -53,7 +53,7 @@ partner_dependents    | indicates if a customer has a partner and dependents | i
 
 ## Plan:
 - [x] Create repo on github to save all files related to the project.
-- [x] Create README.md with [x]goals, [x]initial hypotheses, [x]data dictionary, and [x]outline plans for the project.
+- [x] Create README.md with [x] goals, [x] initial hypotheses, [x] data dictionary, and [x] outline plans for the project.
 - [x] Acqiure telco data using acquire.py file drawing directly from Codeups `telco_churn` database with SQL queries. Create functions for use in conjunction with prepare.py. Document each function.
 - [x] Clean, tidy, and encode data in such a way that it is usable in a machine learning algorithm. Includes dropping unneccesary columns, creating dummies where needed and changing string values to numeric values. Document each function.
 - [x] Create hypotheses based on preliminary statistical tests
