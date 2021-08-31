@@ -1,9 +1,9 @@
 ## Project Goals:
-    - Create documented files to clean and prepare Telco dataset for processing by classification ML algorithms.
-    - Use ML algorithms to create a model that best predicts customer churn on both in and out-of-sample data.
-    - Extrapolate valuable analysis from the model that best fits the data.
-    - Document processes, findings, and takeaways in a final draft Jupyter Notebook
-    - Present on my final Jupyter Notebook, giving a high-level overview of the process used to create the model of best fit
+>    - Create documented files to clean and prepare Telco dataset for processing by classification ML algorithms.
+>    - Use ML algorithms to create a model that best predicts customer churn on both in and out-of-sample data.
+>    - Extrapolate valuable analysis from the model that best fits the data.
+>    - Document processes, findings, and takeaways in a final draft Jupyter Notebook
+>    - Present on my final Jupyter Notebook, giving a high-level overview of the process used to create the model of best fit
 
 
 
@@ -52,10 +52,7 @@ churn   | indicates whether or not a customer churned | int64
 customer_id | customer id number                       | object
 
 ## Hypotheses:
-    - Month-to-month customers with fiber internet are more likely to churn than overall customers
-    - Month-to-month customers monthly tenure is lower than average and significantly contributes to churn rate
-        - at what point does tenure correlate to churn?
-
+>   - $H_{i}$: Customers with Fiber Internet on the month-to-month contract churn much more frequently due to high monthly charges and tend to have lower monthly tenure
 
 
 ## Plan:
