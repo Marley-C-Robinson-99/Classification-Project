@@ -14,6 +14,7 @@ has_churned    | indicates if a customer has churned | int64
 
 Categorical Features   | Description |    Data Type
 --|--|--
+customer_id    |   indicates the the customers' id number in the database |    object
 gender    |   indicates the the customers' gender identity |    int8
 senior_citizen|    indicates if the customer is a senior citizen    |int64
 partner|    indicates if the customer has a partner    |int64
@@ -59,14 +60,14 @@ customer_id | customer id number                       | object
 
 ## Plan:
 - [x] Create repo on github to save all files related to the project.
-- [] Create README.md with [x]goals, [x]initial hypotheses, [x]data dictionary, []executive summary, and [x]outline plans for the project.
+- [x] Create README.md with [x]goals, [x]initial hypotheses, [x]data dictionary, and [x]outline plans for the project.
 - [x] Acqiure telco data using acquire.py file drawing directly from Codeups `telco_churn` database with SQL queries. Create functions for use in conjunction with prepare.py. Document each function.
 - [x] Clean, tidy, and encode data in such a way that it is usable in a machine learning algorithm. Includes dropping unneccesary columns, creating dummies where needed and changing string values to numeric values. Document each function.
 - [x] Create hypotheses based on preliminary statistical tests
 - [x] Test hypotheses with tests such as t-test, chi-squared among others to determine the viability of said hypotheses by comparing p-values to alpha.
-- [] Establish a baseline accuracy.
-- [] Train three different classification models from kNN, random forrest, decision trees, and regression models, testing a variety of parameters and features, both engineered and pre-existing.
-- [] Compute accuracy of models on in-sample and out-of-sample datasets using a variety of equations and functions.
-- [] Once a single, best preforming model has been chosen, evaluate the preformance of the model on the test dataset.
-- [] Create csv file with the .
-- [] Document conclusions, takeaways, and next steps in the Final Report Notebook.
+- [x] Establish a baseline accuracy.
+- [x] Train three different classification models from kNN, random forrest, and decision trees, testing a variety of parameters and features, both engineered and pre-existing.
+- [x] Compute accuracy of models on in-sample and out-of-sample datasets using a variety of equations and functions.
+- [x] Once a single, best preforming model has been chosen, evaluate the preformance of the model on the test dataset.
+- [x] Create csv file with predictions, customer_id and 
+- [x] Document conclusions, takeaways, and next steps in the Final Report Notebook.
