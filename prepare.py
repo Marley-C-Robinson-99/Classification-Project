@@ -30,7 +30,7 @@ def prep_telco(df):
     '''
     # drop the duplicates, customer_id, and Unnamed: 0 columns
     df.drop_duplicates(inplace = True)
-    df.drop(columns = 'customer_id', inplace = True)
+
 
     #### encoding columns containing strings ####
     df['gender'] = df['gender'].replace(['Female', 'Male'], [0,1])
@@ -70,15 +70,20 @@ def prep_telco(df):
 
     # Creating engineered features
     df['auto_bill'] = ((df['payment_bank'] == 1) | (df['payment_card'] == 1))
+
     df['fbr_multi_line'] = ((df['internet_fiber'] == 1) & (df['has_multi_line'] == 1))
-    
+
+    df['mtm_fiber'] = ((df['internet_fiber'] == 1) & (df['contract_m_to_m'] == 1))
+
+    df['partner_dependents'] = ((df['has_partner'] == 1) & (df['has_dependents'] == 1))
+
     # Recasting bools as 0s and 1s
     df['auto_bill'] = df['auto_bill'].replace([False, True], [0,1])
     df['fbr_multi_line'] = df['fbr_multi_line'].replace([False, True], [0,1])
+    df['mtm_fiber'] = df['mtm_fiber'].replace([False, True], [0,1])
+    df['partner_dependents'] = df['partner_dependents'].replace([False, True], [0,1])
 
-    # split data into train, validate, test dfs
-    train, validate, test = telco_split(df)
-    return train, validate, test
+    return df
 
 # Split newly cleaned telco data into train, validate, and test sets with has_churned being stratified
 def telco_split(df):

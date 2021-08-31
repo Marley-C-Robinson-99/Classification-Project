@@ -1,5 +1,5 @@
 ## Project Goals:
-    - Create documented files to clean and prepare Telco dataset for processing by a classification ML algorithm.
+    - Create documented files to clean and prepare Telco dataset for processing by classification ML algorithms.
     - Use ML algorithms to create a model that best predicts customer churn on both in and out-of-sample data.
     - Extrapolate valuable analysis from the model that best fits the data.
     - Document processes, findings, and takeaways in a final draft Jupyter Notebook
@@ -10,7 +10,7 @@
 ## Data dictionary
 Target  | Description   | Data Type
 --|--|--
-placeholder_target    | indicates if a customer has fiber, if their tenure is less than ___ and they have churned. Created from the original churn, tenure and internet_service_id columns | int64
+has_churned    | indicates if a customer has churned | int64
 
 Categorical Features   | Description |    Data Type
 --|--|--
@@ -42,7 +42,8 @@ Engineered Features  | Description   | Data Type
 --|--|--
 auto_bill    | indicates if a customer has a form of automatic payment | int64
 fbr_multi_line    | indicates if a customer fiber internet and multiple phone lines | int64
-
+mtm_fiber    | indicates if a customer has fiber internet and month-to-month contract | int64
+partner_dependents    | indicates if a customer has a partner and dependents | int64
 
 Other   | Description   | Data Type
 --|--|--
@@ -54,9 +55,6 @@ customer_id | customer id number                       | object
     - Month-to-month customers monthly tenure is lower than average and significantly contributes to churn rate
         - at what point does tenure correlate to churn?
 
-
-
-## Executive Summary:
 
 
 ## Plan:
