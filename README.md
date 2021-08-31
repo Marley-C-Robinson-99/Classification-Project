@@ -46,10 +46,6 @@ fbr_multi_line    | indicates if a customer fiber internet and multiple phone li
 mtm_fiber    | indicates if a customer has fiber internet and month-to-month contract | int64
 partner_dependents    | indicates if a customer has a partner and dependents | int64
 
-Other   | Description   | Data Type
---|--|--
-churn   | indicates whether or not a customer churned | int64
-customer_id | customer id number                       | object
 
 ## Hypotheses:
 >   - $H_{i}$: Customers with Fiber Internet on the month-to-month contract churn much more frequently due to high monthly charges and tend to have lower monthly tenure
@@ -57,7 +53,7 @@ customer_id | customer id number                       | object
 
 ## Plan:
 - [x] Create repo on github to save all files related to the project.
-- [x] Create README.md with [x]goals, [x]initial hypotheses, [x]data dictionary, and [x]outline plans for the project.
+- [x] Create README.md with [x] goals, [x] initial hypotheses, [x] data dictionary, and [x] outline plans for the project.
 - [x] Acqiure telco data using acquire.py file drawing directly from Codeups `telco_churn` database with SQL queries. Create functions for use in conjunction with prepare.py. Document each function.
 - [x] Clean, tidy, and encode data in such a way that it is usable in a machine learning algorithm. Includes dropping unneccesary columns, creating dummies where needed and changing string values to numeric values. Document each function.
 - [x] Create hypotheses based on preliminary statistical tests
